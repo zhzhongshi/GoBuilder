@@ -50,7 +50,7 @@ func main() {
 		tmp := strings.SplitN(dist, "/", 2)
 		goos, goarch := tmp[0], tmp[1]
 		log.WithFields(log.Fields{"GOOS": goos, "GOARCH": goarch}).Info("start build")
-		outputDir := filepath.Join(caller.ProjectPath, "build", version)
+		outputDir := filepath.Join(caller.ProjectPath, "bin", version)
 		var outputFileName string
 		if goos == "windows" {
 			outputFileName = fmt.Sprintf("%s-%s_%s_%s.exe", name, version, goos, goarch)
