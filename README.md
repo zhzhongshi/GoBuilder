@@ -90,8 +90,10 @@ runTask - 运行`/Proj/gobuilder/Proj/gobuilder/.executable/taskName(.exe)`并�
 
 ## 致谢
 
-GoBuilder 的诞生离不开以下开源项目：  
+GoBuilder 的诞生离不开以下开源项目：
+
 <https://github.com/sirupsen/logrus>
+
 <https://github.com/urfave/cli/v2>
 
 ## 项目结构
