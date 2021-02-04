@@ -19,6 +19,9 @@ func AddTask(projectPath, taskName string) (retErr error) {
 	defer utils.ReturnErrorFromPanic(&retErr, func(err error) {
 		log.WithError(err).Error("an error during add task")
 	})
+	if !IsInitialized(projectPath) {
+		panic(&ProjectNotInitializedError{projectPath})
+	}
 	if taskName == "" {
 		panic(&InvalidTaskNameError{taskName, "it is blank"})
 	}
@@ -62,6 +65,9 @@ func RunTask(projectPath, taskName string, taskArgs []string) (retErr error) {
 	defer utils.ReturnErrorFromPanic(&retErr, func(err error) {
 		log.WithError(err).Error("an error during run task")
 	})
+	if !IsInitialized(projectPath) {
+		panic(&ProjectNotInitializedError{projectPath})
+	}
 	taskExecutableFilePath := getTaskExecutableFilePath(projectPath, taskName)
 	if !utils.IsExist(taskExecutableFilePath) {
 		panic(&TaskNotAddedError{taskName})

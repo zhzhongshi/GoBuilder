@@ -36,3 +36,11 @@ type TaskNotAddedError struct {
 func (e *TaskNotAddedError) Error() string {
 	return fmt.Sprintf("Task `%s` was not added, you should add before run.", e.TaskName)
 }
+
+type ProjectNotInitializedError struct {
+	ProjectPath string
+}
+
+func (e *ProjectNotInitializedError) Error() string {
+	return fmt.Sprintf("Project in path `%s` did not initialized.", e.ProjectPath)
+}
